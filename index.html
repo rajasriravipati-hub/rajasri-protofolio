@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ravipati Raja Sri Lakshmi — AI/ML Engineer Portfolio</title>
+<meta name="description" content="Portfolio of Ravipati Raja Sri Lakshmi — B.Tech AI & ML student, Python developer, and software engineer building intelligent systems." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  :root{
+    --background: oklch(0.16 0.05 260);
+    --foreground: oklch(0.98 0.005 240);
+    --muted-fg: oklch(0.72 0.03 250);
+    --border: oklch(0.98 0.02 250 / 0.1);
+    --neon: oklch(0.78 0.2 230);
+    --neon-soft: oklch(0.7 0.18 250 / 0.35);
+    --primary-fg: oklch(0.12 0.04 260);
+    --gradient-hero: radial-gradient(ellipse at 20% 20%, oklch(0.4 0.22 260 / 0.6), transparent 60%),
+                     radial-gradient(ellipse at 80% 30%, oklch(0.55 0.22 230 / 0.45), transparent 60%),
+                     radial-gradient(ellipse at 50% 100%, oklch(0.45 0.2 270 / 0.4), transparent 70%);
+    --gradient-accent: linear-gradient(135deg, oklch(0.7 0.2 250), oklch(0.78 0.2 220));
+    --gradient-border: linear-gradient(135deg, oklch(0.78 0.2 230 / 0.6), oklch(0.6 0.2 270 / 0.2));
+    --shadow-neon: 0 0 0 1px oklch(0.78 0.2 230 / 0.25), 0 8px 40px -8px oklch(0.6 0.25 250 / 0.5);
+  }
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--background); color:var(--foreground);
+    font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(at 10% 0%, oklch(0.3 0.15 260 / 0.4), transparent 50%),
+      radial-gradient(at 90% 10%, oklch(0.35 0.18 230 / 0.25), transparent 50%);
+    background-attachment:fixed;
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk',system-ui,sans-serif; letter-spacing:-0.02em}
+  .font-mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+  .text-muted{color:var(--muted-fg)}
+  .text-neon{color:var(--neon)}
+  .bg-accent-grad{background:var(--gradient-accent)}
+  .glass{background:oklch(0.22 0.06 262 / 0.4); backdrop-filter:blur(20px); border:1px solid oklch(0.98 0.02 250 / 0.1)}
+  .glass-strong{background:oklch(0.2 0.06 262 / 0.7); backdrop-filter:blur(24px); border:1px solid oklch(0.98 0.02 250 / 0.12)}
+  .gradient-text{background:linear-gradient(135deg, oklch(0.95 0.02 240), oklch(0.78 0.2 230)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .neon-border{position:relative}
+  .neon-border::before{content:""; position:absolute; inset:0; border-radius:inherit; padding:1px;
+    background:var(--gradient-border);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none}
+  .neon-glow{box-shadow:var(--shadow-neon)}
+  .grid-bg{background-image:
+      linear-gradient(oklch(0.98 0.02 250 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.98 0.02 250 / 0.04) 1px, transparent 1px);
+    background-size:56px 56px}
+  .hover-lift{transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease}
+  .hover-lift:hover{transform:translateY(-4px); box-shadow:var(--shadow-neon)}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .animate-float{animation:float 6s ease-in-out infinite}
+  @keyframes pulse-glow{0%,100%{box-shadow:0 0 30px oklch(0.7 0.2 250 / 0.4)}50%{box-shadow:0 0 60px oklch(0.78 0.22 230 / 0.7)}}
+  .animate-pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+  @keyframes blink{50%{opacity:0}}
+  .cursor-blink::after{content:"|"; margin-left:2px; color:var(--neon); animation:blink 1s steps(1) infinite}
+  @keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .animate-fade-up{animation:fade-up .8s ease-out both}
+  .icon{width:1em;height:1em;display:inline-block;vertical-align:-0.125em}
+  input,textarea{color:var(--foreground)}
+  input::placeholder,textarea::placeholder{color:oklch(0.72 0.03 250 / 0.7)}
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- NAV -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 py-5 transition-all">
+  <div class="mx-auto max-w-6xl px-4">
+    <div id="navInner" class="flex items-center justify-between rounded-2xl px-5 py-3 transition-all">
+      <a href="#home" class="flex items-center gap-2 font-bold" style="font-family:'Space Grotesk'">
+        <span class="grid place-items-center w-9 h-9 rounded-lg bg-accent-grad" style="color:var(--primary-fg)">RS</span>
+        <span class="hidden sm:block">Raja Sri Lakshmi</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-muted">
+        <a href="#home" class="hover:text-white">Home</a>
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#education" class="hover:text-white">Education</a>
+        <a href="#skills" class="hover:text-white">Skills</a>
+        <a href="#projects" class="hover:text-white">Projects</a>
+        <a href="#experience" class="hover:text-white">Experience</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </nav>
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 rounded-lg bg-accent-grad px-4 py-2 text-sm font-medium neon-glow hover-lift" style="color:var(--primary-fg)">
+        Hire Me <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-40"></div>
+  <div class="absolute inset-0" style="background:var(--gradient-hero)"></div>
+  <i data-lucide="brain" class="absolute animate-float" style="top:8rem;left:8%;width:2.5rem;height:2.5rem;color:oklch(0.78 0.2 230 / 0.6)"></i>
+  <i data-lucide="cpu" class="absolute animate-float" style="bottom:10rem;left:12%;width:2rem;height:2rem;color:oklch(0.7 0.2 250 / 0.5);animation-delay:1.5s"></i>
+  <i data-lucide="code-2" class="absolute animate-float" style="top:10rem;right:10%;width:2.25rem;height:2.25rem;color:oklch(0.78 0.2 230 / 0.5);animation-delay:2s"></i>
+  <i data-lucide="sparkles" class="absolute animate-float" style="bottom:8rem;right:15%;width:1.75rem;height:1.75rem;color:oklch(0.7 0.2 250 / 0.6);animation-delay:3s"></i>
+
+  <div class="relative mx-auto max-w-6xl px-4 grid lg:grid-cols-[1.3fr_1fr] gap-12 items-center">
+    <div class="animate-fade-up">
+      <div class="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs text-muted mb-6">
+        <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:var(--neon)"></span>
+        Available for internships · 2026
+      </div>
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05]">
+        <span class="gradient-text">Ravipati Raja</span><br/>
+        <span class="gradient-text">Sri Lakshmi</span>
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-muted">
+        <span id="typed" class="font-medium cursor-blink" style="color:var(--foreground)">AI &amp; ML Student</span>
+      </p>
+      <p class="mt-5 max-w-xl text-muted leading-relaxed">
+        Passionate about Artificial Intelligence, Machine Learning, and building innovative software solutions that solve real-world problems.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#projects" class="inline-flex items-center gap-2 rounded-xl bg-accent-grad px-5 py-3 text-sm font-medium neon-glow hover-lift" style="color:var(--primary-fg)">
+          View Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-xl glass-strong px-5 py-3 text-sm font-medium hover-lift neon-border">
+          <i data-lucide="mail" class="w-4 h-4"></i> Contact Me
+        </a>
+        <a href="resume.pdf" class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-medium hover-lift">
+          <i data-lucide="download" class="w-4 h-4"></i> Resume
+        </a>
+        <a href="https://github.com/rajasriravipati-hub" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-medium hover-lift">
+          <i data-lucide="github" class="w-4 h-4"></i> GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="relative animate-fade-up" style="animation-delay:.2s">
+      <div class="relative mx-auto w-72 h-72 sm:w-80 sm:h-80">
+        <div class="absolute inset-0 rounded-full bg-accent-grad blur-2xl opacity-60 animate-pulse-glow"></div>
+        <div class="relative rounded-full bg-accent-grad animate-pulse-glow" style="padding:3px">
+          <div class="rounded-full w-full h-full grid place-items-center" style="background:var(--background);aspect-ratio:1/1">
+            <i data-lucide="bot" style="width:55%;height:55%;color:var(--neon)"></i>
+          </div>
+        </div>
+        <div class="absolute -top-3 -right-3 glass-strong neon-border rounded-xl px-3 py-2 text-xs flex items-center gap-2">
+          <i data-lucide="brain" class="w-4 h-4 text-neon"></i> AI/ML
+        </div>
+        <div class="absolute -bottom-3 -left-3 glass-strong neon-border rounded-xl px-3 py-2 text-xs flex items-center gap-2">
+          <i data-lucide="code-2" class="w-4 h-4 text-neon"></i> Python · Java
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Helper macro via repeated markup -->
+
+<!-- ABOUT -->
+<section id="about" class="relative py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-widest text-neon">
+        <span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> About Me
+      </div>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-bold gradient-text">Engineering an AI-driven future</h2>
+    </div>
+    <div class="grid lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-3 glass rounded-2xl p-8 neon-border">
+        <p class="text-muted leading-relaxed">
+          Motivated and enthusiastic B.Tech student specializing in <span style="color:var(--foreground)" class="font-medium">Artificial Intelligence and Machine Learning</span> with a strong interest in software development, data analysis, and emerging technologies. Skilled in Python, Java, and Machine Learning fundamentals, with hands-on experience building academic projects such as <span style="color:var(--foreground)">AI-based proctoring systems</span> and reservation management applications.
+        </p>
+        <p class="mt-4 text-muted leading-relaxed">
+          Passionate about problem-solving, teamwork, and building innovative solutions that create real-world impact. Actively seeking opportunities to enhance technical expertise and gain practical industry experience in AI and software engineering.
+        </p>
+        <div class="mt-6 grid sm:grid-cols-2 gap-3">
+          <!-- traits -->
+          <div class="flex gap-3 rounded-xl glass-strong p-4 hover-lift">
+            <div class="grid place-items-center w-9 h-9 rounded-lg bg-accent-grad shrink-0" style="color:var(--primary-fg)"><i data-lucide="brain" class="w-5 h-5"></i></div>
+            <div><div class="font-medium text-sm">Passion for AI &amp; Innovation</div><div class="text-xs text-muted mt-0.5">Drawn to intelligent systems and how they reshape industries.</div></div>
+          </div>
+          <div class="flex gap-3 rounded-xl glass-strong p-4 hover-lift">
+            <div class="grid place-items-center w-9 h-9 rounded-lg bg-accent-grad shrink-0" style="color:var(--primary-fg)"><i data-lucide="target" class="w-5 h-5"></i></div>
+            <div><div class="font-medium text-sm">Strong Analytical Thinking</div><div class="text-xs text-muted mt-0.5">Breaks complex problems into elegant, testable solutions.</div></div>
+          </div>
+          <div class="flex gap-3 rounded-xl glass-strong p-4 hover-lift">
+            <div class="grid place-items-center w-9 h-9 rounded-lg bg-accent-grad shrink-0" style="color:var(--primary-fg)"><i data-lucide="users" class="w-5 h-5"></i></div>
+            <div><div class="font-medium text-sm">Team Collaboration</div><div class="text-xs text-muted mt-0.5">Communicates clearly and contributes constructively in teams.</div></div>
+          </div>
+          <div class="flex gap-3 rounded-xl glass-strong p-4 hover-lift">
+            <div class="grid place-items-center w-9 h-9 rounded-lg bg-accent-grad shrink-0" style="color:var(--primary-fg)"><i data-lucide="zap" class="w-5 h-5"></i></div>
+            <div><div class="font-medium text-sm">Software Engineering Mindset</div><div class="text-xs text-muted mt-0.5">Cares about clean code, structure, and ML system design.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+        <div class="glass-strong neon-border rounded-2xl p-6 hover-lift text-center"><i data-lucide="rocket" class="w-6 h-6 mx-auto text-neon"></i><div class="mt-3 text-3xl font-bold gradient-text">2+</div><div class="mt-1 text-xs text-muted">Projects Completed</div></div>
+        <div class="glass-strong neon-border rounded-2xl p-6 hover-lift text-center"><i data-lucide="cpu" class="w-6 h-6 mx-auto text-neon"></i><div class="mt-3 text-3xl font-bold gradient-text">5+</div><div class="mt-1 text-xs text-muted">Technologies Learned</div></div>
+        <div class="glass-strong neon-border rounded-2xl p-6 hover-lift text-center"><i data-lucide="award" class="w-6 h-6 mx-auto text-neon"></i><div class="mt-3 text-3xl font-bold gradient-text">2+</div><div class="mt-1 text-xs text-muted">Certifications</div></div>
+        <div class="glass-strong neon-border rounded-2xl p-6 hover-lift text-center"><i data-lucide="graduation-cap" class="w-6 h-6 mx-auto text-neon"></i><div class="mt-3 text-3xl font-bold gradient-text">7.9</div><div class="mt-1 text-xs text-muted">Current CGPA</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="relative py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-widest text-neon">
+        <span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Education
+      </div>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-bold gradient-text">Academic Journey</h2>
+    </div>
+    <div class="max-w-3xl mx-auto space-y-6">
+      <div class="glass-strong neon-border rounded-2xl p-6 hover-lift">
+        <div class="text-xs text-neon font-mono">2024 – 2028</div>
+        <h3 class="mt-2 text-lg font-semibold">Bachelor of Technology (B.Tech)</h3>
+        <div class="text-sm text-muted mt-1">CSE — Artificial Intelligence &amp; Machine Learning</div>
+        <div class="text-sm mt-2">Vignan's Foundation for Science, Technology and Research</div>
+        <div class="mt-3 inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium" style="background:var(--neon-soft)">CGPA: 7.9</div>
+      </div>
+      <div class="glass-strong neon-border rounded-2xl p-6 hover-lift">
+        <div class="text-xs text-neon font-mono">2022 – 2024</div>
+        <h3 class="mt-2 text-lg font-semibold">Intermediate Education</h3>
+        <div class="text-sm text-muted mt-1">MPC</div>
+        <div class="text-sm mt-2">Sasi Junior College, Andhra Pradesh</div>
+        <div class="mt-3 inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium" style="background:var(--neon-soft)">Score: 96.9%</div>
+      </div>
+      <div class="glass-strong neon-border rounded-2xl p-6 hover-lift">
+        <div class="text-xs text-neon font-mono">2021 – 2022</div>
+        <h3 class="mt-2 text-lg font-semibold">Matriculation</h3>
+        <div class="text-sm text-muted mt-1">SSC</div>
+        <div class="text-sm mt-2">Minerva English Medium School, Andhra Pradesh</div>
+        <div class="mt-3 inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium" style="background:var(--neon-soft)">Score: 91.5%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="relative py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-widest text-neon">
+        <span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Skills
+      </div>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-bold gradient-text">Technical Toolkit</h2>
+    </div>
+    <div id="skillsGrid" class="grid md:grid-cols-2 gap-6"></div>
+    <div class="mt-8 glass rounded-2xl p-6 neon-border">
+      <div class="flex items-center gap-3 mb-4">
+        <i data-lucide="users" class="w-5 h-5 text-neon"></i>
+        <h3 class="font-semibold">Soft Skills</h3>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="rounded-full glass-strong px-4 py-2 text-sm hover-lift neon-border">Communication</span>
+        <span class="rounded-full glass-strong px-4 py-2 text-sm hover-lift neon-border">Teamwork</span>
+        <span class="rounded-full glass-strong px-4 py-2 text-sm hover-lift neon-border">Leadership</span>
+        <span class="rounded-full glass-strong px-4 py-2 text-sm hover-lift neon-border">Decision Making</span>
+        <span class="rounded-full glass-strong px-4 py-2 text-sm hover-lift neon-border">Management &amp; Coordination</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="relative py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-widest text-neon">
+        <span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Projects
+      </div>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-bold gradient-text">Featured Work</h2>
+    </div>
+    <div class="glass-strong neon-border rounded-3xl overflow-hidden hover-lift">
+      <div class="grid lg:grid-cols-2 gap-0">
+        <div class="relative overflow-hidden min-h-[260px] grid place-items-center bg-accent-grad">
+          <i data-lucide="shield-check" style="width:7rem;height:7rem;color:white;opacity:.85"></i>
+          <div class="absolute top-4 left-4 z-20 inline-flex items-center gap-2 rounded-full glass-strong px-3 py-1.5 text-xs text-neon">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Featured Project
+          </div>
+        </div>
+        <div class="p-8 lg:p-10">
+          <h3 class="text-2xl sm:text-3xl font-bold gradient-text">AI Proctored Examination System</h3>
+          <p class="mt-4 text-muted leading-relaxed">ML-based online examination monitoring system using face detection and behavior analysis to detect malpractice during online examinations.</p>
+          <div class="mt-5 grid grid-cols-2 gap-2 text-sm">
+            <div class="flex items-center gap-2 text-muted"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Face Detection</div>
+            <div class="flex items-center gap-2 text-muted"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Multiple Face Detection</div>
+            <div class="flex items-center gap-2 text-muted"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Motion Monitoring</div>
+            <div class="flex items-center gap-2 text-muted"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Voice Detection</div>
+            <div class="flex items-center gap-2 text-muted"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Suspicious Activity Alerts</div>
+            <div class="flex items-center gap-2 text-muted"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Real-time Dashboard</div>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="rounded-md glass px-2.5 py-1 text-xs font-mono text-neon">Python</span>
+            <span class="rounded-md glass px-2.5 py-1 text-xs font-mono text-neon">OpenCV</span>
+            <span class="rounded-md glass px-2.5 py-1 text-xs font-mono text-neon">Machine Learning</span>
+            <span class="rounded-md glass px-2.5 py-1 text-xs font-mono text-neon">Scikit-learn</span>
+            <span class="rounded-md glass px-2.5 py-1 text-xs font-mono text-neon">Flask</span>
+          </div>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href="#" class="inline-flex items-center gap-2 rounded-xl bg-accent-grad px-4 py-2.5 text-sm font-medium neon-glow hover-lift" style="color:var(--primary-fg)"><i data-lucide="external-link" class="w-4 h-4"></i> Live Demo</a>
+            <a href="https://github.com/rajasriravipati-hub" target="_blank" class="inline-flex items-center gap-2 rounded-xl glass px-4 py-2.5 text-sm font-medium hover-lift neon-border"><i data-lucide="github" class="w-4 h-4"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <div class="glass-strong neon-border rounded-2xl overflow-hidden hover-lift">
+        <div class="w-full h-48 grid place-items-center bg-accent-grad">
+          <i data-lucide="plane" style="width:5rem;height:5rem;color:white;opacity:.85"></i>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold">Airplane Reservation System</h3>
+          <p class="mt-2 text-sm text-muted leading-relaxed">Flight booking and reservation management system for handling passenger details, seat allocation, and ticket reservations efficiently.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="rounded-md glass px-2.5 py-1 text-xs font-mono text-neon">Java</span>
+            <span class="rounded-md glass px-2.5 py-1 text-xs font-mono text-neon">OOP</span>
+            <span class="rounded-md glass px-2.5 py-1 text-xs font-mono text-neon">DBMS</span>
+          </div>
+          <div class="mt-5 flex gap-3">
+            <a href="#" class="inline-flex items-center gap-2 rounded-lg bg-accent-grad px-3.5 py-2 text-xs font-medium hover-lift" style="color:var(--primary-fg)"><i data-lucide="external-link" class="w-3.5 h-3.5"></i> View Project</a>
+            <a href="https://github.com/rajasriravipati-hub" target="_blank" class="inline-flex items-center gap-2 rounded-lg glass px-3.5 py-2 text-xs font-medium hover-lift"><i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="glass-strong neon-border rounded-2xl p-8 hover-lift flex flex-col justify-center items-center text-center">
+        <div class="grid place-items-center w-14 h-14 rounded-2xl bg-accent-grad neon-glow mb-4" style="color:var(--primary-fg)"><i data-lucide="rocket" class="w-6 h-6"></i></div>
+        <h3 class="text-xl font-semibold">More projects on the way</h3>
+        <p class="mt-2 text-sm text-muted">Currently exploring deep learning, NLP, and end-to-end ML deployment.</p>
+        <a href="https://github.com/rajasriravipati-hub" target="_blank" class="mt-5 inline-flex items-center gap-2 rounded-lg glass px-4 py-2 text-sm font-medium hover-lift neon-border"><i data-lucide="github" class="w-4 h-4"></i> Visit GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="relative py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-widest text-neon">
+        <span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Services
+      </div>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-bold gradient-text">What I Can Build</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="group relative glass-strong neon-border rounded-2xl p-8 hover-lift overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-accent-grad opacity-20 blur-3xl"></div>
+        <div class="grid place-items-center w-14 h-14 rounded-2xl bg-accent-grad neon-glow" style="color:var(--primary-fg)"><i data-lucide="brain" class="w-6 h-6"></i></div>
+        <h3 class="mt-5 text-xl font-semibold">AI &amp; Machine Learning Solutions</h3>
+        <p class="mt-3 text-muted text-sm leading-relaxed">Developing beginner-level intelligent systems, machine learning applications, and AI-based monitoring solutions using Python and ML concepts.</p>
+      </div>
+      <div class="group relative glass-strong neon-border rounded-2xl p-8 hover-lift overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-accent-grad opacity-20 blur-3xl"></div>
+        <div class="grid place-items-center w-14 h-14 rounded-2xl bg-accent-grad neon-glow" style="color:var(--primary-fg)"><i data-lucide="code-2" class="w-6 h-6"></i></div>
+        <h3 class="mt-5 text-xl font-semibold">Python Programming &amp; Software Development</h3>
+        <p class="mt-3 text-muted text-sm leading-relaxed">Building software applications, automation tools, and academic projects using Python and programming fundamentals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="relative py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-widest text-neon">
+        <span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Experience
+      </div>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-bold gradient-text">Internship Ready</h2>
+    </div>
+    <div class="max-w-3xl mx-auto glass-strong neon-border rounded-2xl p-8 hover-lift relative">
+      <div class="absolute -top-4 left-8 inline-flex items-center gap-2 rounded-full bg-accent-grad px-3 py-1 text-xs font-medium neon-glow" style="color:var(--primary-fg)">
+        <i data-lucide="briefcase" class="w-3.5 h-3.5"></i> Fresher · Seeking Internship
+      </div>
+      <p class="text-muted leading-relaxed mt-2">Fresher currently pursuing B.Tech in Artificial Intelligence and Machine Learning with strong academic knowledge in software development, Machine Learning, and programming. Hands-on experience gained through academic projects including an <span style="color:var(--foreground)">AI Proctored Examination System</span> and an <span style="color:var(--foreground)">Airplane Reservation System</span>.</p>
+      <p class="mt-4 text-muted leading-relaxed">Actively seeking internship opportunities to apply technical skills, gain industry exposure, and contribute to innovative AI and software development projects.</p>
+      <div class="mt-6 grid sm:grid-cols-3 gap-3">
+        <div class="glass rounded-xl p-4 text-center text-sm hover-lift"><i data-lucide="brain" class="w-5 h-5 mx-auto text-neon"></i><div class="mt-2">AI / ML Intern</div></div>
+        <div class="glass rounded-xl p-4 text-center text-sm hover-lift"><i data-lucide="code-2" class="w-5 h-5 mx-auto text-neon"></i><div class="mt-2">Python Developer Intern</div></div>
+        <div class="glass rounded-xl p-4 text-center text-sm hover-lift"><i data-lucide="database" class="w-5 h-5 mx-auto text-neon"></i><div class="mt-2">Software Engineer Intern</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="relative py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-widest text-neon">
+        <span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Achievements
+      </div>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-bold gradient-text">Milestones &amp; Certifications</h2>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-6">
+      <div class="glass-strong neon-border rounded-2xl p-7">
+        <div class="flex items-center gap-3 mb-5"><i data-lucide="award" class="w-5 h-5 text-neon"></i><h3 class="font-semibold">Achievements</h3></div>
+        <ul class="space-y-3">
+          <li class="flex gap-3 text-sm text-muted"><span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--neon)"></span> Participated in coding competitions and technical workshops</li>
+          <li class="flex gap-3 text-sm text-muted"><span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--neon)"></span> Completed AI &amp; ML coursework and hands-on projects</li>
+          <li class="flex gap-3 text-sm text-muted"><span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--neon)"></span> Developed practical software and AI projects</li>
+        </ul>
+      </div>
+      <div class="grid gap-4">
+        <div class="glass-strong neon-border rounded-2xl p-6 hover-lift flex items-center gap-4">
+          <div class="grid place-items-center w-14 h-14 rounded-xl bg-accent-grad neon-glow shrink-0" style="color:var(--primary-fg)"><i data-lucide="award" class="w-6 h-6"></i></div>
+          <div><div class="font-semibold">Scaler Certification in Python</div><div class="text-xs text-muted mt-1">Scaler · Certified</div></div>
+        </div>
+        <div class="glass-strong neon-border rounded-2xl p-6 hover-lift flex items-center gap-4">
+          <div class="grid place-items-center w-14 h-14 rounded-xl bg-accent-grad neon-glow shrink-0" style="color:var(--primary-fg)"><i data-lucide="award" class="w-6 h-6"></i></div>
+          <div><div class="font-semibold">TCS iON Communication Skills</div><div class="text-xs text-muted mt-1">TCS iON · Certified</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="relative py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-widest text-neon">
+        <span class="w-1.5 h-1.5 rounded-full" style="background:var(--neon)"></span> Contact
+      </div>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-bold gradient-text">Let's Build Something</h2>
+    </div>
+    <div class="grid lg:grid-cols-5 gap-6">
+      <div class="lg:col-span-2 space-y-4">
+        <a href="mailto:rajasriravipati@gmail.com" class="flex items-center gap-4 glass-strong neon-border rounded-2xl p-4 hover-lift">
+          <div class="grid place-items-center w-11 h-11 rounded-xl bg-accent-grad shrink-0" style="color:var(--primary-fg)"><i data-lucide="mail" class="w-5 h-5"></i></div>
+          <div class="min-w-0"><div class="text-xs text-muted">Email</div><div class="text-sm font-medium truncate">rajasriravipati@gmail.com</div></div>
+        </a>
+        <a href="tel:+917995691011" class="flex items-center gap-4 glass-strong neon-border rounded-2xl p-4 hover-lift">
+          <div class="grid place-items-center w-11 h-11 rounded-xl bg-accent-grad shrink-0" style="color:var(--primary-fg)"><i data-lucide="phone" class="w-5 h-5"></i></div>
+          <div class="min-w-0"><div class="text-xs text-muted">Phone</div><div class="text-sm font-medium truncate">+91 79956 91011</div></div>
+        </a>
+        <a href="https://github.com/rajasriravipati-hub" target="_blank" class="flex items-center gap-4 glass-strong neon-border rounded-2xl p-4 hover-lift">
+          <div class="grid place-items-center w-11 h-11 rounded-xl bg-accent-grad shrink-0" style="color:var(--primary-fg)"><i data-lucide="github" class="w-5 h-5"></i></div>
+          <div class="min-w-0"><div class="text-xs text-muted">GitHub</div><div class="text-sm font-medium truncate">rajasriravipati-hub</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/rajasriravipati" target="_blank" class="flex items-center gap-4 glass-strong neon-border rounded-2xl p-4 hover-lift">
+          <div class="grid place-items-center w-11 h-11 rounded-xl bg-accent-grad shrink-0" style="color:var(--primary-fg)"><i data-lucide="linkedin" class="w-5 h-5"></i></div>
+          <div class="min-w-0"><div class="text-xs text-muted">LinkedIn</div><div class="text-sm font-medium truncate">rajasriravipati</div></div>
+        </a>
+        <div class="flex items-center gap-4 glass rounded-2xl p-4">
+          <div class="grid place-items-center w-11 h-11 rounded-xl bg-accent-grad shrink-0" style="color:var(--primary-fg)"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+          <div class="min-w-0"><div class="text-xs text-muted">Location</div><div class="text-sm font-medium truncate">Andhra Pradesh, India</div></div>
+        </div>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Thanks! Your message has been noted.');" class="lg:col-span-3 glass-strong neon-border rounded-2xl p-7 space-y-4">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div><label class="text-xs text-muted">Name</label><input required class="mt-1 w-full rounded-xl px-4 py-3 text-sm outline-none" style="background:oklch(0.98 0.02 250 / 0.06);border:1px solid var(--border)" placeholder="Your name" /></div>
+          <div><label class="text-xs text-muted">Email</label><input required type="email" class="mt-1 w-full rounded-xl px-4 py-3 text-sm outline-none" style="background:oklch(0.98 0.02 250 / 0.06);border:1px solid var(--border)" placeholder="you@email.com" /></div>
+        </div>
+        <div><label class="text-xs text-muted">Subject</label><input class="mt-1 w-full rounded-xl px-4 py-3 text-sm outline-none" style="background:oklch(0.98 0.02 250 / 0.06);border:1px solid var(--border)" placeholder="Internship opportunity" /></div>
+        <div><label class="text-xs text-muted">Message</label><textarea required rows="5" class="mt-1 w-full rounded-xl px-4 py-3 text-sm outline-none resize-none" style="background:oklch(0.98 0.02 250 / 0.06);border:1px solid var(--border)" placeholder="Tell me about the role or project..."></textarea></div>
+        <button type="submit" class="inline-flex items-center gap-2 rounded-xl bg-accent-grad px-5 py-3 text-sm font-medium neon-glow hover-lift" style="color:var(--primary-fg)"><i data-lucide="send" class="w-4 h-4"></i> Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative mt-10" style="border-top:1px solid var(--border)">
+  <div class="absolute inset-x-0 top-0 h-px" style="background:linear-gradient(to right, transparent, oklch(0.78 0.2 230 / 0.6), transparent)"></div>
+  <div class="mx-auto max-w-6xl px-4 py-10 grid sm:grid-cols-3 gap-6 items-center">
+    <div>
+      <div class="flex items-center gap-2 font-bold" style="font-family:'Space Grotesk'">
+        <span class="grid place-items-center w-9 h-9 rounded-lg bg-accent-grad" style="color:var(--primary-fg)">RS</span>
+        Raja Sri Lakshmi
+      </div>
+      <p class="mt-2 text-xs text-muted">AI · ML · Software Engineering</p>
+    </div>
+    <nav class="flex flex-wrap justify-center gap-4 text-sm text-muted">
+      <a href="#home" class="hover:text-white">Home</a>
+      <a href="#about" class="hover:text-white">About</a>
+      <a href="#education" class="hover:text-white">Education</a>
+      <a href="#skills" class="hover:text-white">Skills</a>
+      <a href="#projects" class="hover:text-white">Projects</a>
+      <a href="#experience" class="hover:text-white">Experience</a>
+      <a href="#contact" class="hover:text-white">Contact</a>
+    </nav>
+    <div class="flex sm:justify-end gap-3">
+      <a href="https://github.com/rajasriravipati-hub" target="_blank" class="grid place-items-center w-10 h-10 rounded-xl glass-strong neon-border hover-lift"><i data-lucide="github" class="w-4 h-4"></i></a>
+      <a href="https://www.linkedin.com/in/rajasriravipati" target="_blank" class="grid place-items-center w-10 h-10 rounded-xl glass-strong neon-border hover-lift"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+      <a href="mailto:rajasriravipati@gmail.com" class="grid place-items-center w-10 h-10 rounded-xl glass-strong neon-border hover-lift"><i data-lucide="mail" class="w-4 h-4"></i></a>
+    </div>
+  </div>
+  <div class="py-5 text-center text-xs text-muted" style="border-top:1px solid var(--border)">
+    © <span id="yr"></span> · Designed &amp; Developed by <span style="color:var(--foreground)">Ravipati Raja Sri Lakshmi</span>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Skills grid
+  const groups = [
+    { title: "Programming Languages", icon: "code-2", items: [["Python",85],["Java",75],["C",70]] },
+    { title: "Core Skills", icon: "cpu", items: [["Data Structures",75],["OOP",80],["DBMS Basics",70]] },
+    { title: "AI / ML", icon: "brain", items: [["Machine Learning",70],["Data Analysis",72],["Scikit-learn",68]] },
+    { title: "Tools & Platforms", icon: "database", items: [["GitHub",80],["VS Code",90],["Google Colab",78]] },
+  ];
+  document.getElementById('skillsGrid').innerHTML = groups.map(g => `
+    <div class="glass-strong neon-border rounded-2xl p-6 hover-lift">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="grid place-items-center w-10 h-10 rounded-xl bg-accent-grad" style="color:var(--primary-fg)"><i data-lucide="${g.icon}" class="w-5 h-5"></i></div>
+        <h3 class="font-semibold">${g.title}</h3>
+      </div>
+      <div class="space-y-4">
+        ${g.items.map(([n,v]) => `
+          <div>
+            <div class="flex justify-between text-sm mb-1.5"><span>${n}</span><span class="text-muted font-mono text-xs">${v}%</span></div>
+            <div class="h-1.5 rounded-full overflow-hidden" style="background:oklch(0.28 0.06 260)">
+              <div class="h-full rounded-full bg-accent-grad" style="width:${v}%;box-shadow:0 0 10px var(--neon)"></div>
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+
+  // Typing effect
+  const phrases = ["AI & ML Student","Python Developer","Software Engineer","Problem Solver"];
+  const el = document.getElementById('typed');
+  let p = 0, c = 0, del = false;
+  function tick(){
+    const full = phrases[p];
+    if (!del) {
+      c++; el.textContent = full.slice(0,c);
+      if (c === full.length) { del = true; return setTimeout(tick, 1400); }
+    } else {
+      c--; el.textContent = full.slice(0,c);
+      if (c === 0) { del = false; p = (p+1) % phrases.length; }
+    }
+    setTimeout(tick, del ? 40 : 80);
+  }
+  tick();
+
+  // Nav scroll style
+  const navInner = document.getElementById('navInner');
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY > 20;
+    nav.style.paddingTop = nav.style.paddingBottom = s ? '0.75rem' : '1.25rem';
+    navInner.className = 'flex items-center justify-between rounded-2xl px-5 py-3 transition-all' + (s ? ' glass-strong neon-border' : '');
+  });
+
+  // Render lucide icons
+  lucide.createIcons();
+</script>
+</body>
+</html>
